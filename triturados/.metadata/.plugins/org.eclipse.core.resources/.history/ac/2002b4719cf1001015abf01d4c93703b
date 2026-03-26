@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Tecnología | Triturados Paz De Río</title>
+    <link rel="stylesheet" href="/Styles/Inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navegación -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="/" class="logo">
+            <img src="https://static.wixstatic.com/media/64566e_37068c8fb25b457f99cdb2c87c791b18~mv2_d_7827_4662_s_4_2.png/v1/fill/w_160,h_95,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/TPR%20CFN.png" alt="Triturados Paz De Río" class="logo-img">
+            <span>Triturados <span class="logo-accent">Paz De Río</span></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="/">Inicio</a></li>
+        </ul>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<main class="inventory-page">
+    <section class="services" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Inventario de <span class="highlight">Tecnología</span></h2>
+            <p class="section-subtitle">Gestione el registro de equipos, licencias y responsables.</p>
+
+            <div class="services-grid">
+                <div class="service-card" style="width: 100%;">
+                    <h3>Registrar / Editar equipo</h3>
+                    <form th:action="@{/inventario-tecnologia/guardar}" th:object="${inventarioForm}" method="post" class="inventory-form">
+                        <input type="hidden" th:field="*{id}">
+
+                        <div class="form-row">
+                            <label>Número de Serie</label>
+                            <input type="text" th:field="*{numeroSerie}" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label>Nombre</label>
+                            <input type="text" th:field="*{nombre}" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label>Licencia 1</label>
+                            <input type="text" th:field="*{licencia1}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Licencia 2</label>
+                            <input type="text" th:field="*{licencia2}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Categoría</label>
+                            <input type="text" th:field="*{categoria}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Tipo</label>
+                            <input type="text" th:field="*{tipo}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Ubicación</label>
+                            <input type="text" th:field="*{ubicacion}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Condición</label>
+                            <input type="text" th:field="*{condicion}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Responsable</label>
+                            <input type="text" th:field="*{responsable}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Encuestador</label>
+                            <input type="text" th:field="*{encuestador}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Foto Cédula (ruta/URL)</label>
+                            <input type="text" th:field="*{fotoCedula}">
+                        </div>
+
+                        <div class="form-row">
+                            <label>Observación</label>
+                            <textarea th:field="*{observacion}"></textarea>
+                        </div>
+
+                        <div class="form-row" style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button type="submit" class="btn-primary">Guardar</button>
+                            <a th:href="@{/inventario-tecnologia}" class="btn-secondary">Limpiar</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="service-card" style="width: 100%;">
+                    <h3>Lista de equipos</h3>
+                    <div class="table-responsive" style="overflow-x:auto;">
+                        <table class="inventory-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Número de Serie</th>
+                                <th>Nombre</th>
+                                <th>Licencia 1</th>
+                                <th>Licencia 2</th>
+                                <th>Categoría</th>
+                                <th>Tipo</th>
+                                <th>Ubicación</th>
+                                <th>Condición</th>
+                                <th>Responsable</th>
+                                <th>Encuestador</th>
+                                <th>Foto Cédula</th>
+                                <th>Observación</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="item : ${listaInventario}">
+                                <td th:text="${item.id}"></td>
+                                <td th:text="${item.numeroSerie}"></td>
+                                <td th:text="${item.nombre}"></td>
+                                <td th:text="${item.licencia1}"></td>
+                                <td th:text="${item.licencia2}"></td>
+                                <td th:text="${item.categoria}"></td>
+                                <td th:text="${item.tipo}"></td>
+                                <td th:text="${item.ubicacion}"></td>
+                                <td th:text="${item.condicion}"></td>
+                                <td th:text="${item.responsable}"></td>
+                                <td th:text="${item.encuestador}"></td>
+                                <td th:text="${item.fotoCedula}"></td>
+                                <td th:text="${item.observacion}"></td>
+                                <td>
+                                    <a th:href="@{'/inventario-tecnologia/editar/' + ${item.id}}" class="btn-secondary" style="margin-right: 5px;">Editar</a>
+                                    <a th:href="@{'/inventario-tecnologia/eliminar/' + ${item.id}}"
+                                       class="btn-primary"
+                                       onclick="return confirm('¿Seguro que desea eliminar este registro?');">Eliminar</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer simplificado -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>
+                    <img src="https://static.wixstatic.com/media/64566e_37068c8fb25b457f99cdb2c87c791b18~mv2_d_7827_4662_s_4_2.png/v1/fill/w_160,h_95,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/TPR%20CFN.png" alt="Triturados Paz De Río" class="footer-logo">
+                    <span>Triturados <span class="logo-accent">Paz De Río</span></span>
+                </h3>
+                <p>Gestión interna de inventario de tecnología.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Triturados Paz De Río. Todos los derechos reservados.</p>
+            <p><a href="/">Volver al inicio</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="/Scripts/Inicio.js"></script>
+</body>
+</html>

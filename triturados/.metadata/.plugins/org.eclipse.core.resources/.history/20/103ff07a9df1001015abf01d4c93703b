@@ -1,0 +1,807 @@
+/* Estilos para la página de Inventario de Tecnología */
+
+/* Variables CSS - Manteniendo consistencia */
+:root {
+    --primary-color: #1a5f7a;
+    --primary-dark: #0d4a63;
+    --primary-light: #2d7a9a;
+    --secondary-color: #ff9a3c;
+    --secondary-dark: #e68a36;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-light: #f8f9fa;
+    --bg-dark: #1a1a2e;
+    --white: #ffffff;
+    --gray: #e0e0e0;
+    --gray-light: #f5f5f5;
+    --gray-dark: #888;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+}
+
+/* Estructura general */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    padding-top: 80px; /* Espacio para navbar fijo */
+}
+
+/* Navbar (manteniendo estilos existentes) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    padding: 15px 0;
+    transition: var(--transition);
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-accent {
+    color: var(--secondary-color);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-color);
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-menu a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover:after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Página de Inventario */
+.inventory-page {
+    min-height: calc(100vh - 80px);
+    background-color: var(--bg-light);
+}
+
+.services {
+    padding: 40px 0;
+    background-color: var(--bg-light);
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.highlight {
+    color: var(--secondary-color);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+/* Layout del formulario y tabla */
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Formulario moderno */
+.inventory-form {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.inventory-form:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row label {
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+    padding: 12px 15px;
+    border: 1px solid var(--gray);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--white);
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.2);
+    outline: none;
+}
+
+.form-row textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Botones del formulario */
+.form-buttons {
+    grid-column: span 2;
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Tarjeta del formulario */
+.service-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    width: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--gray-light);
+}
+
+/* Tabla moderna - sin scroll horizontal */
+.table-responsive {
+    width: 100%;
+    overflow: hidden;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.inventory-table thead {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.inventory-table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.inventory-table tbody tr {
+    border-bottom: 1px solid var(--gray-light);
+    transition: var(--transition);
+}
+
+.inventory-table tbody tr:hover {
+    background-color: rgba(26, 95, 122, 0.05);
+}
+
+.inventory-table td {
+    padding: 14px 12px;
+    font-size: 0.95rem;
+    vertical-align: middle;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Estilos específicos para columnas */
+.inventory-table td:nth-child(1), /* ID */
+.inventory-table th:nth-child(1) {
+    width: 60px;
+    text-align: center;
+}
+
+.inventory-table td:nth-child(2), /* Número de Serie */
+.inventory-table th:nth-child(2) {
+    width: 150px;
+}
+
+.inventory-table td:nth-child(3), /* Nombre */
+.inventory-table th:nth-child(3) {
+    width: 180px;
+}
+
+.inventory-table td:nth-child(4), /* Licencia 1 */
+.inventory-table td:nth-child(5), /* Licencia 2 */
+.inventory-table th:nth-child(4),
+.inventory-table th:nth-child(5) {
+    width: 120px;
+}
+
+.inventory-table td:nth-child(6), /* Categoría */
+.inventory-table td:nth-child(7), /* Tipo */
+.inventory-table th:nth-child(6),
+.inventory-table th:nth-child(7) {
+    width: 120px;
+}
+
+.inventory-table td:nth-child(8), /* Ubicación */
+.inventory-table th:nth-child(8) {
+    width: 150px;
+}
+
+.inventory-table td:nth-child(9), /* Condición */
+.inventory-table th:nth-child(9) {
+    width: 120px;
+}
+
+.inventory-table td:nth-child(10), /* Responsable */
+.inventory-table td:nth-child(11), /* Encuestador */
+.inventory-table th:nth-child(10),
+.inventory-table th:nth-child(11) {
+    width: 150px;
+}
+
+.inventory-table td:nth-child(12), /* Foto Cédula */
+.inventory-table th:nth-child(12) {
+    width: 180px;
+}
+
+.inventory-table td:nth-child(13), /* Observación */
+.inventory-table th:nth-child(13) {
+    width: 250px;
+    white-space: normal;
+    max-width: 250px;
+}
+
+.inventory-table td:nth-child(14), /* Acciones */
+.inventory-table th:nth-child(14) {
+    width: 180px;
+    text-align: center;
+}
+
+/* Botones de acción en la tabla */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-edit, .btn-delete {
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 70px;
+}
+
+.btn-edit {
+    background-color: var(--info-color);
+    color: var(--white);
+    border: none;
+}
+
+.btn-edit:hover {
+    background-color: #138496;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+    color: var(--white);
+    border: none;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Badges para estados */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-active {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+}
+
+.badge-inactive {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+}
+
+.badge-maintenance {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--bg-dark);
+    color: var(--white);
+    padding: 60px 0 30px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-col h3 {
+    margin-bottom: 25px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-col p {
+    opacity: 0.8;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    opacity: 0.7;
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .inventory-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-buttons {
+        grid-column: span 1;
+    }
+    
+    .inventory-table {
+        font-size: 0.9rem;
+    }
+    
+    .inventory-table th,
+    .inventory-table td {
+        padding: 12px 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .inventory-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .inventory-table thead,
+    .inventory-table tbody,
+    .inventory-table th,
+    .inventory-table td,
+    .inventory-table tr {
+        display: block;
+    }
+    
+    .inventory-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .inventory-table tr {
+        border: 1px solid var(--gray);
+        margin-bottom: 10px;
+        border-radius: var(--border-radius);
+    }
+    
+    .inventory-table td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        white-space: normal;
+        max-width: none;
+        display: block;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    
+    .inventory-table td:before {
+        position: absolute;
+        top: 14px;
+        left: 12px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    /* Etiquetas para cada columna en móvil */
+    .inventory-table td:nth-child(1):before { content: "ID:"; }
+    .inventory-table td:nth-child(2):before { content: "Número de Serie:"; }
+    .inventory-table td:nth-child(3):before { content: "Nombre:"; }
+    .inventory-table td:nth-child(4):before { content: "Licencia 1:"; }
+    .inventory-table td:nth-child(5):before { content: "Licencia 2:"; }
+    .inventory-table td:nth-child(6):before { content: "Categoría:"; }
+    .inventory-table td:nth-child(7):before { content: "Tipo:"; }
+    .inventory-table td:nth-child(8):before { content: "Ubicación:"; }
+    .inventory-table td:nth-child(9):before { content: "Condición:"; }
+    .inventory-table td:nth-child(10):before { content: "Responsable:"; }
+    .inventory-table td:nth-child(11):before { content: "Encuestador:"; }
+    .inventory-table td:nth-child(12):before { content: "Foto Cédula:"; }
+    .inventory-table td:nth-child(13):before { content: "Observación:"; }
+    .inventory-table td:nth-child(14):before { content: "Acciones:"; }
+    
+    .action-buttons {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: var(--shadow);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .logo span {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .services {
+        padding: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .service-card {
+        padding: 20px;
+    }
+    
+    .inventory-form {
+        padding: 20px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer {
+        padding: 40px 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .btn-edit, .btn-delete {
+        width: 100%;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.inventory-table tbody tr {
+    animation: fadeIn 0.4s ease forwards;
+    animation-delay: calc(var(--row-index) * 0.05s);
+}
+
+/* Mensajes de alerta/confirmación */
+.alert-message {
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.5s ease;
+}
+
+.alert-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+
+.alert-error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+}
+
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+    border-left: 4px solid var(--warning-color);
+}
+
+/* Estilos para el modal de confirmación */
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.confirm-content {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}

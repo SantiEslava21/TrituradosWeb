@@ -1,0 +1,731 @@
+/* Estilos específicos para la página de Empresa */
+
+/* Hero Section Empresa */
+.hero-empresa {
+    height: 89vh;
+    background-image: url('https://static.wixstatic.com/media/64566e_e8b00d1dc52b40a5ac74d685377b1633~mv2_d_4160_2336_s_2.jpeg/v1/fill/w_250,h_140,al_c,q_90,enc_auto/64566e_e8b00d1dc52b40a5ac74d685377b1633~mv2_d_4160_2336_s_2.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.hero-empresa-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.85) 0%, rgba(26, 54, 93, 0.7) 100%);
+    display: flex;
+    align-items: center;
+}
+
+.hero-empresa-content {
+    max-width: 800px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-empresa-title {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.hero-empresa-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    max-width: 700px;
+}
+
+.hero-empresa-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.hero-empresa-breadcrumb a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.hero-empresa-breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.hero-empresa-breadcrumb span {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.hero-empresa-breadcrumb i {
+    font-size: 0.8rem;
+}
+
+/* Sección Quiénes Somos */
+.quienes-somos-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.quienes-somos-text h3 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.quienes-somos-text p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.quienes-somos-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-gray);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.stat-item h4 {
+    color: var(--secondary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    color: var(--primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.quienes-somos-img .img-container {
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    height: 110%;
+}
+
+.quienes-somos-img img {
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    transition: var(--transition);
+     transform: scale(1.05);
+}
+
+.quienes-somos-img:hover img {
+    transform: scale(1.10);
+}
+
+/* Sección Misión, Visión y Valores */
+.mision-vision-valores {
+    background-color: var(--light-gray);
+    padding: 100px 0;
+}
+
+.filosofia-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.filosofia-cards .filosofia-card:nth-child(3) {
+    grid-column: 1 / -1;
+}
+
+.filosofia-card {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 40px 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.filosofia-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.filosofia-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+}
+
+.filosofia-icon {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.filosofia-card h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filosofia-card p {
+    color: var(--gray);
+    line-height: 1.7;
+    text-align: center;
+}
+
+.valores-lista {
+    margin-top: 20px;
+}
+
+.valor-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(244, 162, 97, 0.1);
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.valor-item:hover {
+    background-color: rgba(244, 162, 97, 0.2);
+}
+
+.valor-item i {
+    color: var(--secondary);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.valor-item span {
+    color: var(--dark);
+    line-height: 1.5;
+}
+
+.valor-item strong {
+    color: var(--primary);
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.valor-card {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.valor-card:hover {
+    background-color: white;
+    border-color: var(--secondary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.valor-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.valor-card h4 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    margin: 0 0 12px 0;
+}
+
+.valor-card p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Sección Políticas */
+.politicas {
+    padding: 100px 0;
+}
+
+.politicas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.politica-card {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--light-gray);
+}
+
+.politica-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.politica-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.politica-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.politica-card h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.politica-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.politica-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.politica-lista li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--dark);
+}
+
+.politica-lista i {
+    color: var(--secondary);
+}
+
+.compromisos-adicionales {
+    margin-top: 60px;
+}
+
+.compromisos-adicionales h3 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.compromisos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.compromiso-item {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.compromiso-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.compromiso-item i {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.compromiso-item h4 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.compromiso-item p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+/* Sección Medio Ambiente */
+.medio-ambiente {
+    background-color: #f0f8f0;
+    padding: 100px 0;
+}
+
+.medio-ambiente-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.medio-ambiente-text h3 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.medio-ambiente-text > p {
+    color: var(--gray);
+    margin-bottom: 40px;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.iniciativas-ambientales {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.iniciativa {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.iniciativa:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.iniciativa-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4CAF50;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.iniciativa-content h4 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.iniciativa-content p {
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.medio-ambiente-img {
+    position: relative;
+}
+
+.medio-ambiente-img .img-container {
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    height: 100%;
+    position: relative;
+}
+
+.medio-ambiente-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.medio-ambiente-img:hover img {
+    transform: scale(1.05);
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(26, 54, 93, 0.9));
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.img-overlay h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.logros-ambientales {
+    margin-top: 60px;
+}
+
+.logros-ambientales h3 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
+}
+
+.logros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.logro-item {
+    text-align: center;
+}
+
+.logro-circulo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+    transition: var(--transition);
+}
+
+.logro-item:hover .logro-circulo {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(76, 175, 80, 0.4);
+}
+
+.logro-item p {
+    color: var(--primary);
+    font-weight: 600;
+    max-width: 200px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* CTA Sección */
+.cta-empresa {
+    background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-empresa .btn-primary {
+    background-color: white;
+    color: var(--primary);
+}
+
+.cta-empresa .btn-primary:hover {
+    background-color: var(--light-gray);
+    color: var(--primary);
+}
+
+.cta-empresa .btn-secondary {
+    border-color: white;
+    color: white;
+}
+
+.cta-empresa .btn-secondary:hover {
+    background-color: white;
+    color: var(--primary);
+}
+
+/* Responsive Design para Empresa */
+@media (max-width: 992px) {
+    .hero-empresa-title {
+        font-size: 3rem;
+    }
+    
+    .hero-empresa-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .quienes-somos-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .medio-ambiente-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .quienes-somos-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .logros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-empresa {
+        height: 60vh;
+    }
+    
+    .hero-empresa-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-empresa-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .quienes-somos-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .filosofia-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .filosofia-cards .filosofia-card:nth-child(3) {
+        grid-column: auto;
+    }
+    
+    .politicas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .compromisos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .logros-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .logro-circulo {
+        width: 120px;
+        height: 120px;
+        font-size: 2rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-empresa {
+        height: 50vh;
+    }
+    
+    .hero-empresa-title {
+        font-size: 2rem;
+    }
+    
+    .quienes-somos-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .medio-ambiente-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .iniciativa {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .iniciativa-icon {
+        margin: 0 auto;
+    }
+}

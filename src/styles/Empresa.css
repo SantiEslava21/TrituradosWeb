@@ -1,15 +1,17 @@
 /* Estilos específicos para la página de Empresa */
 
-/* Hero Section Empresa */
 .hero-empresa {
-    height: 89vh;
-    background-image: url('https://static.wixstatic.com/media/64566e_e8b00d1dc52b40a5ac74d685377b1633~mv2_d_4160_2336_s_2.jpeg/v1/fill/w_250,h_140,al_c,q_90,enc_auto/64566e_e8b00d1dc52b40a5ac74d685377b1633~mv2_d_4160_2336_s_2.jpeg');
+    height: 100vh;
+    min-height: 600px;
+    margin-top: var(--navbar-h);
+    background-image: url('https://static.wixstatic.com/media/64566e_e8b00d1dc52b40a5ac74d685377b1633~mv2_d_4160_2336_s_2.jpeg/v1/fill/w_1920,h_1080,al_c,q_90/64566e_e8b00d1dc52b40a5ac74d685377b1633~mv2_d_4160_2336_s_2.jpeg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     position: relative;
-    margin-top: 80px;
 }
 
 .hero-empresa-overlay {
@@ -135,7 +137,7 @@
     height: 110%;
     object-fit: cover;
     transition: var(--transition);
-     transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .quienes-somos-img:hover img {
@@ -424,7 +426,7 @@
     margin-bottom: 25px;
 }
 
-.medio-ambiente-text > p {
+.medio-ambiente-text>p {
     color: var(--gray);
     margin-bottom: 40px;
     line-height: 1.7;
@@ -620,82 +622,79 @@
     .hero-empresa-title {
         font-size: 3rem;
     }
-    
+
     .hero-empresa-subtitle {
         font-size: 1.3rem;
     }
-    
+
     .quienes-somos-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .medio-ambiente-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .quienes-somos-stats {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .logros-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .hero-empresa {
-        height: 60vh;
-    }
-    
+
     .hero-empresa-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-empresa-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .quienes-somos-stats {
         grid-template-columns: 1fr;
     }
-    
+
     .filosofia-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .filosofia-cards .filosofia-card:nth-child(3) {
         grid-column: auto;
     }
-    
+
     .politicas-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .compromisos-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .logros-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .logro-circulo {
         width: 120px;
         height: 120px;
         font-size: 2rem;
     }
-    
+
     .cta-content h2 {
         font-size: 2rem;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .cta-buttons .btn {
         width: 100%;
         max-width: 300px;
@@ -704,27 +703,24 @@
 }
 
 @media (max-width: 576px) {
-    .hero-empresa {
-        height: 50vh;
-    }
-    
+
     .hero-empresa-title {
         font-size: 2rem;
     }
-    
+
     .quienes-somos-text h3 {
         font-size: 1.8rem;
     }
-    
+
     .medio-ambiente-text h3 {
         font-size: 1.8rem;
     }
-    
+
     .iniciativa {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .iniciativa-icon {
         margin: 0 auto;
     }

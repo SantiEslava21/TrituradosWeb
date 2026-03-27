@@ -298,11 +298,13 @@ section {
   transition: var(--transition);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: var(--secondary);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: calc(100% - 28px);
 }
 
@@ -1070,8 +1072,8 @@ section {
    EMPRESA - HERO
 ═══════════════════════════════════════════════════════════ */
 .hero-empresa {
-  height: 70vh;
-  min-height: 480px;
+  height: 100vh;
+  min-height: 600px;
   background-image: url('https://static.wixstatic.com/media/64566e_adeb40cb701949bcb14ddabcbb9798d7~mv2_d_5827_3890_s_4_2.jpg/v1/fill/w_1049,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/64566e_adeb40cb701949bcb14ddabcbb9798d7~mv2_d_5827_3890_s_4_2.jpg');
   background-size: cover;
   background-position: center top;
@@ -1912,7 +1914,7 @@ section {
   }
 
   .hero-empresa {
-    height: 55vh;
+    height: 85vh;
   }
 
   .cta-buttons {

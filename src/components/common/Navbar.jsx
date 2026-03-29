@@ -4,73 +4,33 @@ import { Link, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeTab, setActiveTab] = useState('inicio');
   const location = useLocation();
-  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      const sections = ['productos', 'servicios', 'proyectos', 'responsabilidad', 'contacto'];
-      let current = '';
-
-      if (location.pathname === '/') {
-        current = window.scrollY < window.innerHeight / 2 ? 'inicio' : '';
-      } else if (location.pathname === '/empresa') {
-        current = 'empresa';
-      }
-
-      sections.forEach(section => {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          // Check if element is in the viewport (we check if it occupies the top third of the viewport)
-          if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3) {
-            current = section;
-          }
-        }
-      });
-
-      // Special check to highlight "contacto" if user is at the bottom of the page
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-        if (document.getElementById('contacto')) {
-           current = 'contacto';
-        }
-      }
-
-      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, []);
 
-  // Close menu on route change
   useEffect(() => {
+    const path = location.pathname;
+    if (path === '/') setActiveTab('inicio');
+    else if (path === '/empresa') setActiveTab('empresa');
+    else if (path === '/productos') setActiveTab('productos');
+    else if (path === '/servicios') setActiveTab('servicios');
+    else if (path === '/proyectos') setActiveTab('proyectos');
+    else if (path === '/responsabilidad') setActiveTab('responsabilidad');
+    else if (path === '/contacto') setActiveTab('contacto');
+    
     setIsMenuOpen(false);
   }, [location.pathname]);
 
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
   const closeMenu = () => setIsMenuOpen(false);
-
-  const handleNavClick = (e, path) => {
-    if (location.pathname === path) {
-      e.preventDefault();
-      window.location.reload();
-    } else {
-      closeMenu();
-    }
-  };
-
-  const scrollTo = (hash) => {
-    closeMenu();
-    if (isHome) {
-      const el = document.querySelector(hash);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const navStyle = {
     boxShadow: isScrolled
@@ -102,59 +62,39 @@ const Navbar = () => {
 
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} id="navMenu">
           <li className="nav-item">
-            <Link to="/" className={`nav-link ${activeSection === 'inicio' ? 'active' : ''}`} onClick={(e) => handleNavClick(e, '/')}>
+            <Link to="/" className={`nav-link ${activeTab === 'inicio' ? 'active' : ''}`} onClick={closeMenu}>
               Inicio
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/empresa" className={`nav-link ${activeSection === 'empresa' ? 'active' : ''}`} onClick={(e) => handleNavClick(e, '/empresa')}>
+            <Link to="/empresa" className={`nav-link ${activeTab === 'empresa' ? 'active' : ''}`} onClick={closeMenu}>
               Empresa
             </Link>
           </li>
           <li className="nav-item">
-            <a
-              href={isHome ? '#productos' : '/#productos'}
-              className={`nav-link ${activeSection === 'productos' ? 'active' : ''}`}
-              onClick={() => isHome ? scrollTo('#productos') : closeMenu()}
-            >
+            <Link to="/productos" className={`nav-link ${activeTab === 'productos' ? 'active' : ''}`} onClick={closeMenu}>
               Productos
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              href={isHome ? '#servicios' : '/#servicios'}
-              className={`nav-link ${activeSection === 'servicios' ? 'active' : ''}`}
-              onClick={() => isHome ? scrollTo('#servicios') : closeMenu()}
-            >
+            <Link to="/servicios" className={`nav-link ${activeTab === 'servicios' ? 'active' : ''}`} onClick={closeMenu}>
               Servicios
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              href={isHome ? '#proyectos' : '/#proyectos'}
-              className={`nav-link ${activeSection === 'proyectos' ? 'active' : ''}`}
-              onClick={() => isHome ? scrollTo('#proyectos') : closeMenu()}
-            >
+            <Link to="/proyectos" className={`nav-link ${activeTab === 'proyectos' ? 'active' : ''}`} onClick={closeMenu}>
               Proyectos
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              href={isHome ? '#responsabilidad' : '/#responsabilidad'}
-              className={`nav-link ${activeSection === 'responsabilidad' ? 'active' : ''}`}
-              onClick={() => isHome ? scrollTo('#responsabilidad') : closeMenu()}
-            >
+            <Link to="/responsabilidad" className={`nav-link ${activeTab === 'responsabilidad' ? 'active' : ''}`} onClick={closeMenu}>
               Responsabilidad
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              href="#contacto"
-              className={`nav-link ${activeSection === 'contacto' ? 'active' : ''}`}
-              onClick={() => scrollTo('#contacto')}
-            >
+            <Link to="/contacto" className={`nav-link ${activeTab === 'contacto' ? 'active' : ''}`} onClick={closeMenu}>
               Contacto
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

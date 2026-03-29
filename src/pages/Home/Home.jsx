@@ -4,6 +4,7 @@ import Resenas from './components/Resenas';
 import Productos from './components/Productos';
 import Estadisticas from './components/Estadisticas';
 import Servicios from './components/Servicios';
+import Responsabilidad from './components/Responsabilidad';
 import Clientes from './components/Clientes';
 import Proyectos from './components/Proyectos';
 
@@ -15,6 +16,7 @@ const Home = () => {
       <Productos />
       <Estadisticas />
       <Servicios />
+      <Responsabilidad />
       <Clientes />
       <Proyectos />
     </main>

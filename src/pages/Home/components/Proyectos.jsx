@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Proyectos = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -118,6 +119,9 @@ const Proyectos = () => {
               <i className="fas fa-chevron-right"></i>
             </button>
           </div>
+        </div>
+        <div className="ver-mas-container" style={{ textAlign: 'center', marginTop: '40px' }}>
+          <Link to="/proyectos" className="btn btn-primary">Explorar Todos los Proyectos</Link>
         </div>
       </div>
     </section>

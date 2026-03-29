@@ -1,0 +1,114 @@
+/* --- Dedicated Contacto Page Styles --- */
+
+.contacto-page {
+    padding: 100px 0 60px;
+}
+
+.contacto-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin-top: 60px;
+}
+
+.contacto-info-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-box {
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.info-box i {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.info-box h3 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contacto-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contacto-form-wrapper h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline-color: var(--secondary);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Map placeholder */
+.map-placeholder {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.map-placeholder h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.map-box {
+    background: #f4f4f4;
+    height: 400px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--gray);
+    position: relative;
+    border: 1px solid #eee;
+}
+
+.map-box img {
+    margin-top: 20px;
+    opacity: 0.5;
+    max-width: 80%;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+    }
+}

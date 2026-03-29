@@ -54,10 +54,11 @@ const Footer = () => {
               <ul>
                 <li><Link to="/">Inicio</Link></li>
                 <li><Link to="/empresa">Quiénes Somos</Link></li>
-                <li><a href="/#productos">Productos</a></li>
-                <li><a href="/#servicios">Servicios</a></li>
-                <li><a href="/#responsabilidad">Responsabilidad Social</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><Link to="/productos">Productos</Link></li>
+                <li><Link to="/servicios">Servicios</Link></li>
+                <li><Link to="/proyectos">Proyectos</Link></li>
+                <li><Link to="/responsabilidad">Responsabilidad Social</Link></li>
+                <li><Link to="/contacto" onClick={() => window.scrollTo(0, 0)}>Contacto</Link></li>
               </ul>
             </div>
 

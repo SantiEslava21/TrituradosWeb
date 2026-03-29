@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    TRITURADOS PAZ DE RÍO - Design System
    Unified stylesheet for Home + Empresa pages
    ========================================================= */
@@ -1681,66 +1681,48 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN  (Senior-level audit – all sections)
+   Breakpoints:  1024px | 768px | 576px | 400px
 ═══════════════════════════════════════════════════════════ */
 
-/* Tablet */
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN  (Senior-level audit – all sections)
+   Breakpoints:  1024px  |  768px  |  576px  |  400px
+═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (max-width: 1024px) ─────────────────────────── */
 @media (max-width: 1024px) {
-  :root {
-    --section-py: 72px;
-  }
+  :root { --section-py: 72px; }
 
-  .productos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .nav-link { font-size: 0.85rem; padding: 8px 10px; }
 
-  .estadisticas-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .productos-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .estadistica-item:not(:last-child)::after {
-    display: none;
-  }
+  .estadisticas-grid { grid-template-columns: repeat(2, 1fr); }
+  .estadistica-item:not(:last-child)::after { display: none; }
 
-  .servicios-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .servicios-cards { grid-template-columns: repeat(2, 1fr); }
 
-  .clientes-logos {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .clientes-logos { grid-template-columns: repeat(4, 1fr); }
 
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
+  .footer-content { grid-template-columns: repeat(2, 1fr); gap: 40px; }
 
-  .compromisos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .compromisos-grid { grid-template-columns: repeat(2, 1fr); }
+  .logros-grid      { grid-template-columns: repeat(2, 1fr); }
+  .valores-grid     { grid-template-columns: repeat(2, 1fr); }
+  .politicas-grid   { grid-template-columns: repeat(2, 1fr); }
 
-  .logros-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .valores-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .politicas-grid {
-    grid-template-columns: 1fr;
-  }
+  .quienes-somos-stats { grid-template-columns: repeat(3, 1fr); }
+  .medio-ambiente-content { grid-template-columns: 1fr; gap: 48px; }
 }
 
-/* Large Mobile / Small Tablet */
+/* ── Large Mobile / Small Tablet (max-width: 768px) ─────── */
 @media (max-width: 768px) {
-  :root {
-    --section-py: 56px;
-  }
+  :root { --section-py: 56px; }
 
-  .menu-toggle {
-    display: block;
-  }
+  /* Navbar */
+  .menu-toggle { display: block; }
 
   .nav-menu {
     position: fixed;
@@ -1750,180 +1732,165 @@ section {
     flex-direction: column;
     background: var(--white);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    padding: 20px 0;
+    padding: 12px 0 20px;
     gap: 0;
     transition: left 0.35s ease;
+    z-index: 999;
   }
-
-  .nav-menu.active {
-    left: 0;
-  }
+  .nav-menu.active { left: 0; }
 
   .nav-link {
     display: block;
     padding: 14px 24px;
     border-bottom: 1px solid var(--light-gray);
     border-radius: 0;
+    font-size: 0.95rem;
   }
+  .nav-link::after { display: none; }
 
-  .nav-link::after {
-    display: none;
-  }
+  /* Hero */
+  .hero { background-attachment: scroll; min-height: 560px; }
+  .hero-buttons { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .hero-buttons .btn { width: 100%; max-width: 300px; }
 
-  .hero {
-    background-attachment: scroll;
-  }
+  /* Resenas */
+  .reseñas-content { grid-template-columns: 1fr; gap: 40px; }
+  .reseñas-img { position: static; }
 
-  .reseñas-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  /* Productos home */
+  .productos-grid { grid-template-columns: 1fr; }
 
-  .reseñas-img {
-    position: static;
-  }
+  /* Estadisticas */
+  .estadisticas-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .productos-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Servicios */
+  .servicios-cards { grid-template-columns: repeat(2, 1fr); }
 
-  .estadisticas-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Clientes */
+  .clientes-logos { grid-template-columns: repeat(3, 1fr); }
 
-  .servicios-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Carousel */
+  .carousel-slide { grid-template-columns: 1fr; }
 
-  .clientes-logos {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  /* Footer */
+  .footer-content { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom  { flex-direction: column; text-align: center; }
+  .footer-legal   { flex-wrap: wrap; justify-content: center; gap: 16px; }
 
-  .carousel-slide {
-    grid-template-columns: 1fr;
-  }
+  /* Empresa – quienes somos */
+  .quienes-somos-content { grid-template-columns: 1fr; gap: 40px; }
+  .quienes-somos-stats   { grid-template-columns: repeat(2, 1fr); }
 
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
+  /* Empresa – filosofia */
+  .filosofia-cards { grid-template-columns: 1fr; }
+  .filosofia-cards .filosofia-card:nth-child(3) { grid-column: auto; }
+  .valores-grid    { grid-template-columns: repeat(2, 1fr); }
 
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
+  /* Empresa – politicas */
+  .politicas-grid { grid-template-columns: 1fr; }
 
-  .footer-legal {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  /* Empresa – compromisos */
+  .compromisos-grid        { grid-template-columns: repeat(2, 1fr); }
+  .compromisos-adicionales { padding: 40px 20px; }
 
-  .quienes-somos-content {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
+  /* Empresa – logros */
+  .logros-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
-  .filosofia-cards {
-    grid-template-columns: 1fr;
-  }
+  /* Empresa – medio ambiente */
+  .medio-ambiente-content { grid-template-columns: 1fr; gap: 40px; }
+  .iniciativa { flex-direction: column; align-items: flex-start; }
 
-  .filosofia-cards .filosofia-card:nth-child(3) {
-    grid-column: auto;
-  }
-
-  .valores-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .politicas-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .compromisos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .logros-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .medio-ambiente-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .quienes-somos-stats {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  /* CTA */
+  .cta-buttons     { flex-direction: column; align-items: center; }
+  .cta-buttons .btn { width: 100%; max-width: 320px; }
 }
 
-/* Mobile */
+/* ── Mobile (max-width: 576px) ──────────────────────────── */
 @media (max-width: 576px) {
-  :root {
-    --section-py: 48px;
-  }
+  :root { --section-py: 48px; }
 
-  .hero {
-    height: 85vh;
-  }
+  /* Hero */
+  .hero { height: 85vh; }
+  .hero-title    { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .hero-subtitle { font-size: 0.95rem; }
+  .section-title { margin-bottom: 40px; }
 
-  .servicios-cards {
-    grid-template-columns: 1fr;
-  }
+  /* Productos home */
+  .productos-grid  { grid-template-columns: 1fr; }
+  .producto-content { padding: 20px; }
 
-  .clientes-logos {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Estadisticas */
+  .estadisticas-grid { grid-template-columns: 1fr; }
+  .estadistica-item  { padding: 28px 16px; }
 
-  .estadisticas-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Servicios */
+  .servicios-cards  { grid-template-columns: 1fr; }
+  .servicio-card-img { height: 260px; }
 
-  .compromisos-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Clientes */
+  .clientes-logos     { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .clientes-container { padding: 28px 16px; }
 
-  .logros-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Carousel */
+  .carousel-controls-wrapper { margin-top: 24px; gap: 12px; }
 
-  .valores-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Footer */
+  .footer         { padding-top: 48px; }
+  .footer-content { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom  { flex-direction: column; text-align: center; gap: 12px; }
+  .footer-legal   { flex-direction: column; align-items: center; gap: 8px; }
 
-  .quienes-somos-stats {
-    grid-template-columns: 1fr;
-  }
+  .newsletter-form        { flex-direction: column; border: none; gap: 8px; }
+  .newsletter-form input  { border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius); }
+  .newsletter-form button { border-radius: var(--radius); padding: 12px; }
 
-  .logro-circulo {
-    width: 120px;
-    height: 120px;
-    font-size: 1.5rem;
-  }
+  /* Empresa – hero */
+  .hero-empresa { height: 85vh; background-attachment: scroll; }
 
-  .compromisos-adicionales {
-    padding: 40px 20px;
-  }
+  /* Empresa – quienes somos */
+  .quienes-somos-stats { grid-template-columns: 1fr; }
+  .stat-item           { padding: 16px; }
 
-  .iniciativa {
-    flex-direction: column;
-  }
+  /* Empresa – filosofia */
+  .filosofia-card { padding: 28px 20px; }
 
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
+  /* Empresa – valores */
+  .valores-grid { grid-template-columns: 1fr; }
 
-  .hero-empresa {
-    height: 85vh;
-  }
+  /* Empresa – compromisos */
+  .compromisos-grid { grid-template-columns: 1fr; }
+  .compromiso-item  { padding: 24px 16px; }
 
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
+  /* Empresa – logros */
+  .logros-grid  { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .logro-circulo { width: 110px; height: 110px; font-size: 1.4rem; }
 
-  .cta-buttons .btn {
-    width: 100%;
-    max-width: 320px;
-  }
+  /* Empresa – iniciativas */
+  .iniciativa { flex-direction: column; }
+
+  /* CTA */
+  .cta-buttons      { flex-direction: column; align-items: center; }
+  .cta-buttons .btn { width: 100%; max-width: 320px; }
+
+  /* WhatsApp */
+  .whatsapp-btn { width: 52px; height: 52px; font-size: 1.6rem; bottom: 20px; right: 20px; }
+}
+
+/* ── Small Mobile (max-width: 400px) ────────────────────── */
+@media (max-width: 400px) {
+  :root { --section-py: 40px; --navbar-h: 68px; }
+
+  .container { padding: 0 16px; }
+  .logo img  { height: 42px; }
+
+  .hero-content { padding: 0 4px; }
+  .hero-buttons .btn { padding: 11px 20px; font-size: 0.88rem; }
+
+  .producto-detail-text h2 { font-size: 1.5rem; }
+  .subproductos-preview    { gap: 6px; }
+  .subproducto-tag         { font-size: 0.72rem; padding: 4px 9px; }
+
+  .logros-grid         { grid-template-columns: 1fr; }
+  .quienes-somos-stats { grid-template-columns: 1fr; }
+  .footer              { padding-top: 36px; }
 }

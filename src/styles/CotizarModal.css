@@ -1,0 +1,366 @@
+/* =====================================================
+   COTIZAR MODAL – estilos
+   Usa las variables de main.css (:root)
+   ===================================================== */
+
+/* ── Overlay ──────────────────────────────────────── */
+.cotizar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 19, 34, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  padding: 16px;
+  animation: cotizar-fadeIn 0.22s ease;
+}
+
+@keyframes cotizar-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Card ────────────────────────────────────────── */
+.cotizar-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 24px 64px rgba(7, 19, 34, 0.30);
+  overflow: hidden;
+  animation: cotizar-slideUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes cotizar-slideUp {
+  from { transform: translateY(32px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0)    scale(1);    opacity: 1; }
+}
+
+/* ── Header ──────────────────────────────────────── */
+.cotizar-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 24px 20px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #fff;
+}
+
+.cotizar-header-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  color: var(--accent, #f4a261);
+}
+
+.cotizar-category-label {
+  display: block;
+  font-size: 0.72rem;
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 2px;
+}
+
+.cotizar-title {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.cotizar-close {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.cotizar-close:hover {
+  background: rgba(255, 255, 255, 0.30);
+}
+
+/* ── Body ────────────────────────────────────────── */
+.cotizar-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Fields */
+.cotizar-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cotizar-label {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary, #1a365d);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Select */
+.cotizar-select-wrapper {
+  position: relative;
+}
+
+.cotizar-select {
+  width: 100%;
+  padding: 11px 40px 11px 14px;
+  border: 2px solid var(--mid-gray, #dee2e6);
+  border-radius: 10px;
+  font-family: var(--font-main, 'Roboto', sans-serif);
+  font-size: 0.95rem;
+  color: var(--dark, #212529);
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cotizar-select:focus {
+  outline: none;
+  border-color: var(--primary-light, #2c5282);
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.15);
+}
+
+.cotizar-select-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--gray, #6c757d);
+  pointer-events: none;
+}
+
+/* Precio unitario badge */
+.cotizar-precio-unitario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--light, #f8f9fa);
+  border-radius: 10px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--secondary, #e63946);
+}
+
+.cotizar-precio-label {
+  font-size: 0.85rem;
+  color: var(--gray, #6c757d);
+  font-weight: 500;
+}
+
+.cotizar-precio-valor {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary, #1a365d);
+}
+
+/* Cantidad */
+.cotizar-cantidad-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid var(--mid-gray, #dee2e6);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cotizar-cantidad-wrapper:focus-within {
+  border-color: var(--primary-light, #2c5282);
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.15);
+}
+
+.cotizar-qty-btn {
+  width: 44px;
+  height: 44px;
+  background: var(--light, #f8f9fa);
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--primary, #1a365d);
+  transition: background 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cotizar-qty-btn:hover {
+  background: var(--light-gray, #e9ecef);
+}
+
+.cotizar-input {
+  flex: 1;
+  border: none;
+  text-align: center;
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark, #212529);
+  padding: 8px 0;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  min-width: 0;
+}
+
+.cotizar-input::-webkit-inner-spin-button,
+.cotizar-input::-webkit-outer-spin-button {
+  display: none;
+}
+
+.cotizar-input:focus {
+  outline: none;
+}
+
+/* Total card */
+.cotizar-total-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-radius: 12px;
+  padding: 18px 20px;
+  color: #fff;
+}
+
+.cotizar-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cotizar-total-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.cotizar-total-valor {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--accent, #f4a261);
+}
+
+.cotizar-total-note {
+  font-size: 0.72rem;
+  opacity: 0.65;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.cotizar-footer {
+  display: flex;
+  gap: 12px;
+  padding: 16px 24px 24px;
+}
+
+.cotizar-btn-cancel {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid var(--mid-gray, #dee2e6);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--gray, #6c757d);
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cotizar-btn-cancel:hover {
+  border-color: var(--gray, #6c757d);
+  color: var(--dark, #212529);
+}
+
+.cotizar-btn-confirm {
+  flex: 2;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--secondary, #e63946) 0%, #c1121f 100%);
+  color: #fff;
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  box-shadow: 0 4px 16px rgba(230, 57, 70, 0.35);
+}
+
+.cotizar-btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(230, 57, 70, 0.50);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 520px) {
+  .cotizar-modal {
+    border-radius: 16px 16px 0 0;
+    max-width: 100%;
+    margin-top: auto;
+  }
+
+  .cotizar-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .cotizar-total-valor {
+    font-size: 1.2rem;
+  }
+
+  .cotizar-footer {
+    flex-direction: column;
+  }
+
+  .cotizar-btn-confirm,
+  .cotizar-btn-cancel {
+    flex: none;
+  }
+}

@@ -133,3 +133,63 @@
         font-size: 2.5rem;
     }
 }
+
+/* ── Botón Cotizar ──────────────────────────────────────── */
+.btn-cotizar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 34px;
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    color: #fff;
+    letter-spacing: 0.02em;
+    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(230, 57, 70, 0.30);
+}
+
+.btn-cotizar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(230, 57, 70, 0.45);
+    background: linear-gradient(135deg, #c1121f 0%, #9b0a15 100%);
+}
+
+/* ── Sub-productos preview tags ─────────────────────────── */
+.subproductos-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.subproducto-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--light);
+    border: 1px solid var(--mid-gray);
+    border-radius: var(--radius-full);
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--primary);
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.subproducto-tag i {
+    color: var(--secondary);
+    font-size: 0.7rem;
+}
+
+.subproducto-tag:hover {
+    border-color: var(--secondary);
+    background: #fff0f1;
+}
+

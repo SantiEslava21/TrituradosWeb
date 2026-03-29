@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/pages/Productos.css';
+import CotizarModal from '../../components/common/CotizarModal';
+import { CATALOGO } from '../../data/productsData';
 
 const PRODUCTOS_DETALLE = [
   {
@@ -33,13 +35,15 @@ const PRODUCTOS_DETALLE = [
 ];
 
 const ProductosPage = () => {
+  const [modalProductoId, setModalProductoId] = useState(null);
+
   return (
     <div className="productos-page">
       <div className="page-header">
         <div className="container">
           <h1>Nuestros Productos</h1>
           <p>
-            Agregados pétreos y soluciones en concreto bajo los más altos estándares de calidad, 
+            Agregados pétreos y soluciones en concreto bajo los más altos estándares de calidad,
             garantizando un "Futuro con Bases Sólidas" para cada proyecto de infraestructura.
           </p>
         </div>
@@ -62,12 +66,35 @@ const ProductosPage = () => {
                     </li>
                   ))}
                 </ul>
-                <a href="#contacto" className="btn btn-secondary">Más Información</a>
+
+                {/* Sub-productos preview */}
+                <div className="subproductos-preview">
+                  {CATALOGO[prod.id]?.subProductos.map((sp, i) => (
+                    <span key={i} className="subproducto-tag">
+                      <i className="fas fa-tag" /> {sp.nombre}
+                    </span>
+                  ))}
+                </div>
+
+                <button
+                  className="btn btn-cotizar"
+                  onClick={() => setModalProductoId(prod.id)}
+                >
+                  <i className="fas fa-file-invoice-dollar" /> Cotizar
+                </button>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modal de cotización */}
+      {modalProductoId && (
+        <CotizarModal
+          productoId={modalProductoId}
+          onClose={() => setModalProductoId(null)}
+        />
+      )}
     </div>
   );
 };
